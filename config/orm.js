@@ -4,15 +4,15 @@ var connection = require('./connection');
 //  the necessary MySQL commands in the controllers.
 //  These are the methods you will need
 // to use in order to retrieve and store data in your database.
-var ORM = {
+var orm = {
   // return all the burgers in the table
-  selectAll: function() {
-    connection.query('SELECT * FROM burgers', function(err, db_response){
+  selectAll: function(pickBurgers) {
+    connection.query('SELECT * FROM burgers ORDER BY dt DESC', function(err, res){
       if (err){
         throw err;
       }
-      console.log(db_response);
-    })
+      pickBurgers(res);
+    });
   },
   // create a new burger and insert into db
     // bName[String] dev[Boolean]
@@ -25,7 +25,7 @@ var ORM = {
         // insert it
         connection.query('INSERT INTO burgers SET ?', newBurg, function(err, db_response) {
             // check results
-            console.log('you created a new burger named', bName);
+            console.log('you created a new burger named', db_response);
         });
     },
     // change a value on a burger (devoured)
@@ -36,9 +36,13 @@ var ORM = {
         // create a attributes object that has column names as props and values
         var updatedVals = [true, burger_id];
         // connection.query('UPDATE burgers SET devoured = true WHERE ID = ?')
-        connection.query('UPDATE burgers SET devoured = ?  WHERE id = ?', updatedVals, function(err, db_response) {
+        connection.query('UPDATE burgers SET devoured = ?  WHERE id = ?', updatedVals, function(err, db_response, db_fields) {
+            if (err) {
+              throw err;
+            }
             console.log("updated query response", db_response);
+            console.log("with fields", db_fields);
         });
     }
 };
-module.exports = ORM;
+module.exports = orm;

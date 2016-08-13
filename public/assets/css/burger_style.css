@@ -1,0 +1,27 @@
+
+
+html {
+  height: 100%;
+/*  background: url("trampolineBurger.jpg") no-repeat center center;*/
+  background-size: cover;
+}
+
+body {
+  /*background-color: #24a4ec;*/
+  background-color: #0096DD;
+}
+
+h2{
+  color: white;
+}
+
+.mycontent-left {
+  border-right: 1px solid #333;
+  /*dashed #333*/
+  border-color: white;
+}
+
+h4{
+  font-size: 16px;
+  padding-bottom: 4px;
+}
