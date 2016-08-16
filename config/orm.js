@@ -6,12 +6,13 @@ var connection = require('./connection');
 // to use in order to retrieve and store data in your database.
 var orm = {
   // return all the burgers in the table
-  selectAll: function(pickBurgers) {
+  selectAll: function() {
     connection.query('SELECT * FROM burgers ORDER BY dt DESC', function(err, res){
       if (err){
         throw err;
       }
-      pickBurgers(res);
+      console.log(res);
+
     });
   },
   // create a new burger and insert into db
@@ -36,12 +37,12 @@ var orm = {
         // create a attributes object that has column names as props and values
         var updatedVals = [true, burger_id];
         // connection.query('UPDATE burgers SET devoured = true WHERE ID = ?')
-        connection.query('UPDATE burgers SET devoured = ?  WHERE id = ?', updatedVals, function(err, db_response, db_fields) {
+        connection.query('UPDATE burgers SET devoured = ?  WHERE id = ?', updatedVals, function(err, db_response) {
             if (err) {
               throw err;
             }
             console.log("updated query response", db_response);
-            console.log("with fields", db_fields);
+          //  console.log("with fields", db_fields);
         });
     }
 };
