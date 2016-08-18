@@ -56,7 +56,7 @@ app.use(express.static(__dirname + '/public'));
 //app.use('/', theRouter);
 
 
-app.get('/', function(req, res){
+app.get('/', function(req,res){
 	myConnection.query('SELECT * FROM burgers', function(err, data){
 		if(err) throw error
 			console.log(data);
@@ -66,7 +66,7 @@ app.get('/', function(req, res){
 	})
 });
 
-app.post('/create', function(req, res){
+app.post('/create', function(req,res){
 	myConnection.query('INSERT INTO burgers SET ?', {
 		burger_name: req.body.burger_name,
 		devoured: false
