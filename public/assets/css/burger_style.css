@@ -25,3 +25,22 @@ h4{
   font-size: 16px;
   padding-bottom: 4px;
 }
+
+.menu1{
+  background-color: #fddb44;
+  border-style: solid;
+  padding: 10px;
+  border-width: 1px;
+}
+
+.menu2{
+  background-color: #fddb44;
+  border-style: solid;
+  padding: 10px;
+  border-width: 1px;
+}
+
+ul
+{
+list-style-type: none;
+}

@@ -2,10 +2,9 @@
 <!-- burgers that are ready are listed here -->
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-    <!--    <div class="mycontent-left">-->
+    <div class="col-md-5 col-md-offset-1 menu1">
         <ul>
-        <h4> Ready to eat burgers!</h4>
+        <h4> <u>Ready to eat burgers!</u></h4>
           <div id="burgerUpdate">
             {{#each burgers}}
               {{#unless this.devoured}}
@@ -14,7 +13,7 @@
                 <div>
                   <h4>Burger is ready!</h4>
                     {{this.id}}. {{this.burger_name}}
-                <!--  <div class="col-sm-3 text-center">-->
+
 
                   <form id="burgerUpdate" action="/update?_method=PUT" method="POST">
                   								<div class="input-group">
@@ -36,11 +35,11 @@
 
 
 
-<!-- devoured burgers are here-->
-    <div class="col-md-6">
-  <!--     <div class="mycontent-right"> -->
+
+    <div class="col-md-5 col-md-offset-1 menu2">
+
         <ul>
-  				<h4> Devoured burgers</h4>
+  				<h4> <u>Devoured burgers</u></h4>
   					{{#each burgers}}
   						{{#if this.devoured}}
   						<li>
@@ -50,7 +49,7 @@
   									<div class="input-group">
   										<input type="hidden" class="form-control" name="id" value="{{this.id}}">
   										<span class="input-group-btn">
-  											<button class="btn btn-default" type="submit" id="submitBurger">Im Stuffed!</button>
+  											<button class="btn btn-primary" type="submit" id="submitBurger">I'm Stuffed!</button>
   										</span>
   									</div>
   								</form>
@@ -60,7 +59,7 @@
   				{{/each}}
   			</ul>
     </div>
-      <!--  </div>-->
+
 
 
   </div>
